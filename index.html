@@ -2,11 +2,87 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=everest_mobile_eng_v2.html">
-<title>Everest Training</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everest Restaurant Group — Training Manual</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    min-height: 100vh;
+    background: #2C0A0A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 24px;
+  }
+  .logo-wrap { margin-bottom: 32px; text-align: center; }
+  .logo-wrap h1 {
+    color: #E8B84B;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+  .logo-wrap p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85rem;
+    margin-top: 6px;
+  }
+  .card-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 360px;
+  }
+  .card {
+    display: block;
+    background: #1e0808;
+    border: 1px solid #E8B84B;
+    border-radius: 14px;
+    padding: 22px 24px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .card:active { transform: scale(0.97); background: #2a0f0f; }
+  .card .flag { font-size: 2rem; margin-bottom: 10px; }
+  .card .lang {
+    color: #E8B84B;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card .desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.82rem;
+  }
+  .footer {
+    margin-top: 36px;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.75rem;
+  }
+</style>
 </head>
 <body>
-<p><a href="everest_mobile_eng_v2.html">영어 버전 (English)</a></p>
-<p><a href="everest_mobile_nep_v1.html">네팔어 버전 (Nepali)</a></p>
+  <div class="logo-wrap">
+    <h1>EVEREST RESTAURANT GROUP</h1>
+    <p>Service Training Manual 2026</p>
+  </div>
+
+  <div class="card-wrap">
+    <a class="card" href="./everest_mobile_eng_v2.html">
+      <div class="flag">🇬🇧</div>
+      <div class="lang">English Version</div>
+      <div class="desc">Service Training Manual — English</div>
+    </a>
+
+    <a class="card" href="./everest_mobile_nep_v1.html">
+      <div class="flag">🇳🇵</div>
+      <div class="lang">नेपाली संस्करण</div>
+      <div class="desc">सेवा प्रशिक्षण पुस्तिका — Nepali</div>
+    </a>
+  </div>
+
+  <div class="footer">© 2026 Everest Restaurant Group · everestkorea.com</div>
 </body>
 </html>
