@@ -1736,71 +1736,8 @@ window.addEventListener("DOMContentLoaded", function() {
     _clearBtns();
     btn.classList.add("playing");
 
-    if (!IS_MOB) {
-      /* Desktop: Google TTS → embedded fallback */
-      _desktopSpeak(key, btn);
-      return;
-    }
-
-    /* Mobile: Gemini-style speechSynthesis → embedded fallback */
-    if (!window.speechSynthesis) {
-      _playEmbed(key, btn);
-      return;
-    }
-
-    /* ── Gemini core approach ── */
-    window.speechSynthesis.cancel();
-
-    var utt = new SpeechSynthesisUtterance(KR_TEXTS[key]);
-    utt.lang  = "ko-KR";
-    utt.rate  = 1.0;
-    utt.pitch = 1.0;
-    utt.volume = 1.0;
-
-    /* Track if TTS actually started */
-    var ttsStarted = false;
-
-    utt.onstart = function() {
-      ttsStarted = true;
-      /* TTS running — if embedded fallback was playing, stop it */
-      if (_aud) { try{ _aud.pause(); _aud.currentTime=0; }catch(e){} _aud=null; }
-    };
-    utt.onend   = function() { btn.classList.remove("playing"); };
-    utt.onerror = function() {
-      if (!ttsStarted) _playEmbed(key, btn);
-      else btn.classList.remove("playing");
-    };
-
-    var voices = window.speechSynthesis.getVoices();
-
-    var setVoiceAndSpeak = function() {
-      var koVoice = null;
-      for (var i=0; i<voices.length; i++) {
-        if (voices[i].lang.indexOf('ko') === 0) { koVoice = voices[i]; break; }
-      }
-      if (koVoice) utt.voice = koVoice;
-      window.speechSynthesis.speak(utt);
-
-      /* Safety fallback: if TTS hasn't started in 1.2s, play embedded */
-      setTimeout(function() {
-        if (!ttsStarted) {
-          window.speechSynthesis.cancel();
-          _playEmbed(key, btn);
-        }
-      }, 1200);
-    };
-
-    if (voices.length > 0) {
-      setVoiceAndSpeak();
-    } else {
-      /* Voices not loaded yet (Android Chrome async) */
-      window.speechSynthesis.onvoiceschanged = function() {
-        voices = window.speechSynthesis.getVoices();
-        setVoiceAndSpeak();
-      };
-      /* Backup for devices where onvoiceschanged never fires */
-      window.speechSynthesis.speak(utt);
-    }
+    /* Always prioritize Google Translate TTS for high-quality natural female voice */
+    _desktopSpeak(key, btn);
   }
 
   function _playEmbed(key, btn) {

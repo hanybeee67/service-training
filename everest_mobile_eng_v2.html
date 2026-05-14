@@ -1069,12 +1069,28 @@ window.addEventListener("DOMContentLoaded", function() {
     if (!text) return;
     btn.classList.add("playing");
 
-    if (IS_ANDROID) {
-      _speakAndroid(text, btn);
-    } else if (IS_IOS) {
-      _speakIOS(text, btn);
-    } else {
-      _speakDesktop(text, btn);
+    /* Always prioritize Google Translate TTS for high-quality natural female voice */
+    var url = "https://translate.google.com/translate_tts"
+            + "?ie=UTF-8&tl=ko&client=tw-ob&q=" + encodeURIComponent(text);
+    var a = new Audio(url);
+    _audio = a;
+    
+    a.onended = function() { btn.classList.remove("playing"); _audio = null; };
+    a.onerror = function() {
+      _audio = null;
+      if (IS_ANDROID) _speakAndroid(text, btn);
+      else if (IS_IOS) _speakIOS(text, btn);
+      else btn.classList.remove("playing");
+    };
+    
+    var p = a.play();
+    if (p && p.catch) {
+      p.catch(function() { 
+        _audio = null; 
+        if (IS_ANDROID) _speakAndroid(text, btn);
+        else if (IS_IOS) _speakIOS(text, btn);
+        else btn.classList.remove("playing");
+      });
     }
   }
 
