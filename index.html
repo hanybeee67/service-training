@@ -830,6 +830,33 @@ var CH = {
       <div class="step-row"><div class="step-dot">7</div><div class="step-cnt"><div class="step-title">Clear Plates Promptly</div><div class="step-desc">Once a guest has clearly finished, clear dishes courteously and quickly.</div></div></div>
     </div>
     <div class="callout"><div class="callout-title">🍛 Serving Script</div><p>"Here is your Butter Chicken Curry — careful, the bowl is very hot! Enjoy your meal! 😊"</p></div>
+    <div class="sec-title">🇰🇷 Korean Service Phrases</div>
+    <div class="callout" style="margin-bottom:14px;padding:10px 14px;">
+      <p style="margin:0;font-size:0.82rem;color:var(--text-soft);">Tap 🔊 to hear the Korean pronunciation</p>
+    </div>
+    <div class="kr-phrase-list">
+      <div class="kr-phrase-card">
+        <div class="kr-situation">Announcing the dish when serving</div>
+        <div class="kr-text">버터치킨 나왔습니다.</div>
+        <div class="kr-romanization">Beoteo chikin nawatseumnida.</div>
+        <div class="kr-translation">Your Butter Chicken has arrived.</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr4', this)">🔊 Listen</button>
+      </div>
+      <div class="kr-phrase-card">
+        <div class="kr-situation">Warning about a hot dish</div>
+        <div class="kr-text">그릇이 뜨겁습니다.</div>
+        <div class="kr-romanization">Geureus-i tteugeopsseumnida.</div>
+        <div class="kr-translation">The bowl is very hot — please be careful.</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr5', this)">🔊 Listen</button>
+      </div>
+      <div class="kr-phrase-card">
+        <div class="kr-situation">Wishing the guest a good meal</div>
+        <div class="kr-text">맛있게 드세요.</div>
+        <div class="kr-romanization">Masitge deuseyo.</div>
+        <div class="kr-translation">Please enjoy your meal.</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr6', this)">🔊 Listen</button>
+      </div>
+    </div>
   `}},
   7:{label:"Chapter 07",name:"Menu Knowledge",html:function(){return `
     <div class="callout"><div class="callout-title">📚 Staff Rule</div><p>Every staff member must taste and be able to describe all menu items. Guests trust your recommendations!</p></div>
@@ -1108,6 +1135,33 @@ var CH_NE = {
       <div class="step-row"><div class="step-dot">७</div><div class="step-cnt"><div class="step-title">प्लेट छिटो हटाउनुहोस्</div><div class="step-desc">अतिथिले खाना सकिसकेपछि तुरुन्तै र शालीनतापूर्वक भाँडा हटाउनुहोस्।</div></div></div>
     </div>
     <div class="callout"><div class="callout-title">🍛 परिवेशन स्क्रिप्ट</div><p>"यो हो तपाईंको बटर चिकेन करी — सावधान, कचौरा निकै तातो छ! खाना मीठो लागोस्! 😊"</p></div>
+    <div class="sec-title">🇰🇷 कोरियाली सेवा वाक्यांशहरू</div>
+    <div class="callout" style="margin-bottom:14px;padding:10px 14px;">
+      <p style="margin:0;font-size:0.82rem;color:var(--text-soft);">🔊 थिच्नुहोस् — कोरियाली उच्चारण सुन्नुहोस्</p>
+    </div>
+    <div class="kr-phrase-list">
+      <div class="kr-phrase-card">
+        <div class="kr-situation">खाना ल्याउँदा घोषणा गर्दा</div>
+        <div class="kr-text">버터치킨 나왔습니다.</div>
+        <div class="kr-romanization">Beoteo chikin nawatseumnida.</div>
+        <div class="kr-translation">तपाईंको बटर चिकेन आयो।</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr4', this)">🔊 सुन्नुहोस्</button>
+      </div>
+      <div class="kr-phrase-card">
+        <div class="kr-situation">तातो भाँडोबारे सचेत गराउँदा</div>
+        <div class="kr-text">그릇이 뜨겁습니다.</div>
+        <div class="kr-romanization">Geureus-i tteugeopsseumnida.</div>
+        <div class="kr-translation">कचौरा निकै तातो छ — सावधान हुनुहोस्।</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr5', this)">🔊 सुन्नुहोस्</button>
+      </div>
+      <div class="kr-phrase-card">
+        <div class="kr-situation">खाना शुभकामना दिँदा</div>
+        <div class="kr-text">맛있게 드세요.</div>
+        <div class="kr-romanization">Masitge deuseyo.</div>
+        <div class="kr-translation">खाना मिठो लागोस्।</div>
+        <button class="kr-speak-btn" onclick="speakKorean('kr6', this)">🔊 सुन्नुहोस्</button>
+      </div>
+    </div>
   `}},
   7:{label:"Chapter 07",name:"Menu Knowledge",html:function(){return `
     <div class="callout"><div class="callout-title">📚 कर्मचारी नियम</div><p>हरेक कर्मचारीले सबै मेनु वस्तुहरू चाखी वर्णन गर्न सक्नु पर्छ। अतिथिहरू तपाईंको सिफारिसमा भर पर्छन्!</p></div>
@@ -1712,7 +1766,10 @@ window.addEventListener("DOMContentLoaded", function() {
       var KR_TEXTS = {
     kr1: "안녕하세요, 에베레스트입니다. 몇 분이십니까?",
     kr2: "이 테이블로 모시겠습니다.",
-    kr3: "이 태블릿으로 주문 부탁드립니다."
+    kr3: "이 태블릿으로 주문 부탁드립니다.",
+    kr4: "버터치킨 나왔습니다.",
+    kr5: "그릇이 뜨겁습니다.",
+    kr6: "맛있게 드세요."
   };
 
 var KR_AUDIO = {
@@ -1736,13 +1793,30 @@ var KR_AUDIO = {
     btn.classList.add("playing");
 
     var src = KR_AUDIO[key];
-    if (!src) { btn.classList.remove("playing"); return; }
-    
-    var a = new Audio(src);
-    _audio = a;
-    a.onended = function() { btn.classList.remove("playing"); _audio = null; };
-    a.onerror = function() { btn.classList.remove("playing"); _audio = null; };
-    a.play().catch(function() { btn.classList.remove("playing"); _audio = null; });
+    if (src) {
+      var a = new Audio(src);
+      _audio = a;
+      a.onended = function() { btn.classList.remove("playing"); _audio = null; };
+      a.onerror = function() { _fallbackTTS(key, btn); };
+      a.play().catch(function() { _fallbackTTS(key, btn); });
+    } else {
+      _fallbackTTS(key, btn);
+    }
+  }
+
+  function _fallbackTTS(key, btn) {
+    var text = KR_TEXTS[key];
+    if (!text || !window.speechSynthesis) { btn.classList.remove("playing"); return; }
+    window.speechSynthesis.cancel();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "ko-KR";
+    utter.rate = 0.9;
+    var voices = window.speechSynthesis.getVoices();
+    var krVoice = voices.find(function(v){ return v.lang && v.lang.startsWith("ko"); });
+    if (krVoice) utter.voice = krVoice;
+    utter.onend = function() { btn.classList.remove("playing"); };
+    utter.onerror = function() { btn.classList.remove("playing"); };
+    window.speechSynthesis.speak(utter);
   }
 </script>
 </body>
